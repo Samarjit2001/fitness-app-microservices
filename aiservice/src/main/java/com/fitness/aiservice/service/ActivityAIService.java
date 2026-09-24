@@ -20,6 +20,10 @@ import java.util.List;
 public class ActivityAIService {
     private final GeminiService geminiService;
 
+    public ActivityAIService(GeminiService geminiService) {
+        this.geminiService = geminiService;
+    }
+
     public Recommendation generateRecommendation(Activity activity) {
         String prompt = createPromptForActivity(activity);
         String aiResponse = geminiService.getAnswer(prompt);
